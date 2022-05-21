@@ -9,7 +9,7 @@ fn main() {
 
     const DEFAULT_PASSWORD_LEN: usize = 32;
 
-    let password_length = match std::env::args().skip(1).next() {
+    let password_length = match std::env::args().nth(1) {
         None => DEFAULT_PASSWORD_LEN,
         Some(arg) => arg.parse::<usize>().expect("Expected positive integer"),
     };

@@ -25,7 +25,7 @@ fn alternate_version() {
         }
 
         if is_multiple_of_3 || is_multiple_of_5 {
-            println!("");
+            println!();
         } else {
             println!("{}", i);
         }
@@ -56,7 +56,7 @@ fn iter_version() {
                 format!("{}", i)
             }
         })
-        .for_each(|x| println!("{}", x.to_string()));
+        .for_each(|x| println!("{}", x));
 }
 
 fn main() {

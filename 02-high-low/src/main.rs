@@ -1,4 +1,5 @@
 use rand::Rng;
+use std::cmp::Ordering;
 
 fn main() {
     loop {
@@ -27,14 +28,14 @@ fn play_game() {
             }
         };
 
-        if guess < goal {
-            println!("too low");
-        } else if guess > goal {
-            println!("too high");
-        } else {
-            println!("you win!");
-            break;
-        }
+        match guess.cmp(&goal) {
+            Ordering::Greater => println!("too high"),
+            Ordering::Less => println!("too low"),
+            Ordering::Equal => {
+                println!("you win!");
+                break;
+            }
+        };
     }
 }
 

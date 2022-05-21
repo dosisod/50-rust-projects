@@ -35,22 +35,18 @@ fn main() {
     println!("{:?}", new_nums);
 }
 
-fn print_squares(nums: &Vec<i32>) {
+fn print_squares(nums: &[i32]) {
     nums.iter().map(|x| x * x).for_each(|x| println!("{}", x));
 }
 
 fn filter_non_red_colors(colors: Vec<Color>) -> Vec<Color> {
     colors
-        .clone()
         .into_iter()
-        .filter(|color| match color {
-            Color::Red => true,
-            _ => false,
-        })
+        .filter(|color| matches!(color, Color::Red))
         .collect::<Vec<_>>()
 }
 
-fn get_all_but_first(nums: &Vec<i32>) -> Vec<i32> {
+fn get_all_but_first(nums: &[i32]) -> Vec<i32> {
     nums.get(1..).unwrap().to_vec()
 }
 
